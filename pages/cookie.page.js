@@ -1,6 +1,7 @@
 class CookiesPage {
   constructor() {
     this.url = "/cookieclicker";
+    this.clickTimeout = 30;
   }
 
   get topMenu() {
@@ -9,14 +10,26 @@ class CookiesPage {
   get cookie() {
     return $("#bigCookie");
   }
+  get cookiesAmountBlock() {
+    return $('#cookies');
+  }
+  get cookiesAmount() {
+    const amount = this.cookiesAmountBlock.getText().split(" ")[0];
+    return +amount;
+  }
+  get cookiesPerSecond() {
+    const textArr = this.cookiesAmountBlock.$("div").getText().split(" ");
+    const amount = textArr[textArr.length - 1];
+    return +amount;
+  }
 
   openUrl() {
     browser.url(this.url);
     this.cookie.waitForDisplayed();
   }
 
-  clickCookie(times = 100, clickTimeout = 30) {
-    for (let i = 0; i < times; i++) {
+  clickCookie(times, clickTimeout = this.clickTimeout) {
+    for (let i = 0; i <= times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
     }
