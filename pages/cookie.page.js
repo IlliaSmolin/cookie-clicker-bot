@@ -2,6 +2,7 @@ class CookiesPage {
   constructor() {
     this.url = "/cookieclicker";
     this.clickTimeout = 30;
+    this.textRefreshTime = 500;
   }
 
   openUrl() {
@@ -17,12 +18,12 @@ class CookiesPage {
     return $('#cookies');
   }
   get cookiesAmount() {
-    browser.pause(1000);
+    browser.pause(this.textRefreshTime);
     const amount = this.cookiesAmountBlock.getHTML(false).split(" ")[0];
     return +amount;
   }
   get cookiesPerSecond() {
-    browser.pause(1000);
+    browser.pause(this.textRefreshTime);
     const textArr = this.cookiesAmountBlock.$("div").getHTML(false).split(" ");
     const amount = textArr[textArr.length - 1];
     return +amount;
@@ -67,12 +68,12 @@ class CookiesPage {
     return this.productsBlock.$(`#product${index}`);
   }
   productPrice(index) {
-    browser.pause(1000);
+    browser.pause(this.textRefreshTime);
     const amount = this.productsBlock.$(`#productPrice${index}`).getHTML(false);
     return +amount;
   }
   productOwnedAmount(index) {
-    browser.pause(1000);
+    browser.pause(this.textRefreshTime);
     const amount = this.productsBlock.$(`#productOwned${index}`).getHTML(false);
     return +amount;
   }
