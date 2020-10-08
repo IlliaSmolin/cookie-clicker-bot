@@ -11,7 +11,10 @@ const timeouts = {
 describe("Cookie Clicker Bot", function () {
   before(function () {
     cookiePage.openUrl();
+  });
+  it("Accept cookies policy", function () {
     cookiesBanner.acceptCookies();
+    assert.strictEqual(cookiesBanner.acceptCookiesBtn.isDisplayed(), false);
   });
   it("Buy first grandma", function () {
     cookie.clickToReach(products.grandMaPrice, timeouts.click);
