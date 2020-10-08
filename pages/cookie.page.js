@@ -35,12 +35,9 @@ class CookiesPage {
       browser.pause(clickTimeout);
     }
   }
-  clickToReach(price) {
-    let curr = this.cookiesAmount;
-    while(curr < price) {
-      this.clickCookie(1);
-      curr = this.cookiesAmount;
-    }
+  clickToReach(price, clickTimeout = this.clickTimeout) {
+    const difference = price - this.cookiesAmount;
+    this.clickCookie(difference, clickTimeout);
   }
 
   //products
