@@ -17,25 +17,23 @@ class CookiesPage {
     return $('#cookies');
   }
   get cookiesAmount() {
-    this.cookiesAmountBlock.scrollIntoView();
-    const amount = this.cookiesAmountBlock.getText().split(" ")[0];
+    const amount = this.cookiesAmountBlock.getHTML(false).split(" ")[0];
     return +amount;
   }
   get cookiesPerSecond() {
-    const textArr = this.cookiesAmountBlock.$("div").getText().split(" ");
+    const textArr = this.cookiesAmountBlock.$("div").getHTML(false).split(" ");
     const amount = textArr[textArr.length - 1];
     return +amount;
   }
 
   clickCookie(times, clickTimeout = this.clickTimeout) {
-    this.cookie.scrollIntoView();
+    this.cookie.scrollIntoView(false);
     for (let i = 0; i < times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
     }
   }
   clickToReach(price) {
-    this.cookie.scrollIntoView();
     let curr = this.cookiesAmount;
     while(curr < price) {
       this.clickCookie(1);
@@ -70,11 +68,11 @@ class CookiesPage {
     return this.productsBlock.$(`#product${index}`);
   }
   productPrice(index) {
-    const amount = this.productsBlock.$(`#productPrice${index}`).getText();
+    const amount = this.productsBlock.$(`#productPrice${index}`).getHTML(false);
     return +amount;
   }
   productOwnedAmount(index) {
-    const amount = this.productsBlock.$(`#productOwned${index}`).getText();
+    const amount = this.productsBlock.$(`#productOwned${index}`).getHTML(false);
     return +amount;
   }
   buyCursor() {
