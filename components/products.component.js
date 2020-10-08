@@ -1,4 +1,4 @@
-module.exports = class Products {
+class Products {
   get productsBlock() {
     return $("#products");
   }
@@ -25,12 +25,10 @@ module.exports = class Products {
     return this.productsBlock.$(`#product${index}`);
   }
   productPrice(index) {
-    browser.pause(this.textRefreshTime);
     const amount = this.productsBlock.$(`#productPrice${index}`).getHTML(false);
     return +amount;
   }
   productOwnedAmount(index) {
-    browser.pause(this.textRefreshTime);
     const amount = this.productsBlock.$(`#productOwned${index}`).getHTML(false);
     return +amount;
   }
@@ -43,3 +41,5 @@ module.exports = class Products {
     this.grandMa.click();
   }
 }
+
+module.exports = new Products();

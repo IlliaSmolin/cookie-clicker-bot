@@ -1,6 +1,12 @@
 const cookiePage = require("../pages/cookie.page");
+const cookie = require("../components/cookie.component");
+const products = require("../components/products.component");
 const cookiesBanner = require("../helpers/cookiesBanner.helper");
 const { assert } = require("chai");
+
+const timeouts = {
+  click: 30,
+};
 
 describe("Cookie Clicker Bot", function () {
   before(function () {
@@ -8,8 +14,8 @@ describe("Cookie Clicker Bot", function () {
     cookiesBanner.acceptCookies();
   });
   it("Buy first grandma", function () {
-    cookiePage.clickToReach(cookiePage.grandMaPrice);
-    cookiePage.buyGrandMa();
-    assert.strictEqual(cookiePage.grandMaAmount, 1);
+    cookie.clickToReach(products.grandMaPrice, timeouts.click);
+    products.buyGrandMa();
+    assert.strictEqual(products.grandMaAmount, 1);
   });
 });
