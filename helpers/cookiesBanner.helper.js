@@ -5,6 +5,7 @@ class CookiesBanner {
 
   acceptCookies() {
     this.acceptCookiesBtn.waitForDisplayed();
+    browser.pause(1000); //animation time
     this.acceptCookiesBtn.click();
   }
 }
