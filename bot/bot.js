@@ -12,15 +12,19 @@ let amounts = {
 },
   mousePower = 1;
 
-function reachAndBuyCursor() {
-  cookie.clickToReachCursor(mousePower);
-  products.buyCursor();
-  amounts.cursor++;
+function reachAndBuyCursor(amount = 1) {
+  for(let i = 0; i < amount; i++) {
+    cookie.clickToReachCursor(mousePower);
+    products.buyCursor();
+    amounts.cursor++;
+  }
 }
-function reachAndBuyGrandMa() {
-  cookie.clickToReachGrandMa(mousePower);
-  products.buyGrandMa();
-  amounts.grandMa++;
+function reachAndBuyGrandMa(amount = 1) {
+  for(let i = 0; i < amount; i++) {
+    cookie.clickToReachGrandMa(mousePower);
+    products.buyGrandMa();
+    amounts.grandMa++;
+  }
 }
 function reachAndBuyUpgrade(cursor = false) {
   const initialUpgradesAmount = upgrades.upgradesAmount;
@@ -55,15 +59,11 @@ describe("Cookie Clicker Bot", function () {
     assert.equal(newItems, initItems - 1);
   });
   it("Buy 3 grandmas", function () {
-    for (let i = 0; i < 3; i++) {
-      reachAndBuyGrandMa();
-    }
+    reachAndBuyGrandMa(3);
     assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
   it("Buy 4 cursors", function () {
-    for (let i = 0; i < 4; i++) {
-      reachAndBuyCursor();
-    }
+    reachAndBuyCursor(4);
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
   it("Buy second cursor upgrade", function () {
