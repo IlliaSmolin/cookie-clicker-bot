@@ -1,4 +1,4 @@
 {
-  "animationTime": 750,
-  "clickTimeout": 10
+  "animationTime": 600,
+  "clickTimeout": 0
 }
