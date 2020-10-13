@@ -46,34 +46,24 @@ describe("Cookie Clicker Bot", function () {
   it("Configure the game", function () {
     options.setHighPerformance();
   });
-  it("Buy first grandma", function () {
-    reachAndBuyGrandMa();
-    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
-  });
-  it("Buy second grandma", function () {
-    reachAndBuyGrandMa();
-    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
-  });
-  it("Buy 5 cursors", function () {
-    for (let i = 0; i < 5; i++) {
-      reachAndBuyCursor();
-    }
+  it("Buy first cursor", function () {
+    reachAndBuyCursor();
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
   it("Buy cursor upgrade", function () {
     const { initItems, newItems } = reachAndBuyUpgrade(true);
     assert.equal(newItems, initItems - 1);
   });
-  it("Buy third grandma", function () {
-    reachAndBuyGrandMa();
+  it("Buy 3 grandmas", function () {
+    for (let i = 0; i < 3; i++) {
+      reachAndBuyGrandMa();
+    }
     assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
-  it("Buy fourth grandma", function () {
-    reachAndBuyGrandMa();
-    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
-  });
-  it("Buy fifth grandma", function () {
-    reachAndBuyGrandMa();
-    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
+  it("Buy 4 cursors", function () {
+    for (let i = 0; i < 4; i++) {
+      reachAndBuyCursor();
+    }
+    assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
 });
