@@ -8,6 +8,19 @@ const { assert } = require("chai");
 const timeouts = {
   click: 30,
 };
+const productsAmount = {
+  cursor: 0,
+  grandMa: 0,
+};
+
+function buyGrandMa() {
+  products.buyGrandMa();
+  productsAmount.grandMa++;
+}
+
+function clickToReachGrandMa() {
+  cookie.clickToReach(products.grandMaPrice, timeouts.click);
+}
 
 describe("Cookie Clicker Bot", function () {
   before(function () {
@@ -21,8 +34,13 @@ describe("Cookie Clicker Bot", function () {
     options.disableShortNumbers();
   });
   it("Buy first grandma", function () {
-    cookie.clickToReach(products.grandMaPrice, timeouts.click);
-    products.buyGrandMa();
-    assert.strictEqual(products.grandMaAmount, 1);
+    clickToReachGrandMa();
+    buyGrandMa();
+    assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
   });
+  it("Buy second grandma", function () {
+    clickToReachGrandMa();
+    buyGrandMa();
+    assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
+  })
 });
