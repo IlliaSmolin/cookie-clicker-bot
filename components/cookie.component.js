@@ -23,8 +23,10 @@ class Cookie {
     }
   }
   clickToReach(price, clickTimeout = 10) {
-    const difference = price - this.cookiesAmount;
-    this.clickCookie(difference, clickTimeout);
+    const difference = Math.max(0, price - this.cookiesAmount);
+    if (difference) {
+      this.clickCookie(difference, clickTimeout);
+    }
   }
 }
 
