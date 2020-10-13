@@ -18,12 +18,6 @@ function buyGrandMa() {
   products.buyGrandMa();
   productsAmount.grandMa++;
 }
-function clickToReachCursor() {
-  cookie.clickToReach(products.cursorPrice);
-}
-function clickToReachGrandMa() {
-  cookie.clickToReach(products.grandMaPrice);
-}
 
 describe("Cookie Clicker Bot", function () {
   before(function () {
@@ -37,18 +31,18 @@ describe("Cookie Clicker Bot", function () {
     options.setHighPerformance();
   });
   it("Buy first grandma", function () {
-    clickToReachGrandMa();
+    cookie.clickToReachGrandMa();
     buyGrandMa();
     assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
   });
   it("Buy second grandma", function () {
-    clickToReachGrandMa();
+    cookie.clickToReachGrandMa();
     buyGrandMa();
     assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
   });
   it("Buy 5 cursors", function () {
     for (let i = 0; i < 5; i++) {
-      clickToReachCursor();
+      cookie.clickToReachCursor();
       buyCursor();
     }
     assert.strictEqual(products.cursorAmount, productsAmount.cursor);

@@ -1,3 +1,5 @@
+const products = require("./products.component");
+
 class Cookie {
   get cookie() {
     return $("#bigCookie");
@@ -27,6 +29,13 @@ class Cookie {
     if (difference) {
       this.clickCookie(difference, clickTimeout);
     }
+  }
+  
+  clickToReachCursor() {
+    this.clickToReach(products.cursorPrice);
+  }
+  clickToReachGrandMa() {
+    this.clickToReach(products.grandMaPrice);
   }
 }
 
