@@ -10,11 +10,17 @@ const productsAmount = {
   grandMa: 0,
 };
 
+function buyCursor() {
+  products.buyCursor();
+  productsAmount.cursor++;
+}
 function buyGrandMa() {
   products.buyGrandMa();
   productsAmount.grandMa++;
 }
-
+function clickToReachCursor() {
+  cookie.clickToReach(products.cursorPrice);
+}
 function clickToReachGrandMa() {
   cookie.clickToReach(products.grandMaPrice);
 }
@@ -39,5 +45,12 @@ describe("Cookie Clicker Bot", function () {
     clickToReachGrandMa();
     buyGrandMa();
     assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
-  })
+  });
+  it("Buy 5 cursors", function () {
+    for (let i = 0; i < 5; i++) {
+      clickToReachCursor();
+      buyCursor();
+    }
+    assert.strictEqual(products.cursorAmount, productsAmount.cursor);
+  });
 });
