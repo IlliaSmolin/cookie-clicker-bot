@@ -70,4 +70,8 @@ describe("Cookie Clicker Bot", function () {
     reachAndBuyCursor(14);
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
+  it("Buy first grandma upgrade", function () {
+    const { initItems, newItems } = reachAndBuyUpgrade();
+    assert.equal(newItems, initItems - 1);
+  });
 });
