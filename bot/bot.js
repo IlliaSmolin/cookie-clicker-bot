@@ -10,28 +10,28 @@ let amounts = {
   cursor: 0,
   grandMa: 0,
 },
-  mousePower = 1;
+  clickPower = 1;
 
 function reachAndBuyCursor(amount = 1) {
   for(let i = 0; i < amount; i++) {
-    cookie.clickToReachCursor(mousePower);
+    cookie.clickToReachCursor(clickPower);
     products.buyCursor();
     amounts.cursor++;
   }
 }
 function reachAndBuyGrandMa(amount = 1) {
   for(let i = 0; i < amount; i++) {
-    cookie.clickToReachGrandMa(mousePower);
+    cookie.clickToReachGrandMa(clickPower);
     products.buyGrandMa();
     amounts.grandMa++;
   }
 }
 function reachAndBuyUpgrade(cursor = false) {
   const initialUpgradesAmount = upgrades.upgradesAmount;
-  cookie.clickToReachUpgrade(mousePower);
+  cookie.clickToReachUpgrade(clickPower);
   upgrades.buyUpgrade();
   if (cursor) {
-    mousePower *= 2;
+    clickPower *= 2;
   }
   return {
     initItems: initialUpgradesAmount,

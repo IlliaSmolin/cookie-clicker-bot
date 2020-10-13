@@ -19,29 +19,29 @@ class Cookie {
     return +amount;
   }
 
-  clickCookie(cookies, mousePower) {
+  clickCookie(cookies, clickPower) {
     this.cookie.scrollIntoView(false);
-    const times = Math.ceil(cookies / mousePower);
+    const times = Math.ceil(cookies / clickPower);
     for (let i = 0; i < times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
     }
   }
-  clickToReach(price, mousePower) {
+  clickToReach(price, clickPower) {
     const difference = Math.max(0, price - this.cookiesAmount);
     if (difference) {
-      this.clickCookie(difference, mousePower);
+      this.clickCookie(difference, clickPower);
     }
   }
 
-  clickToReachCursor(mousePower) {
-    this.clickToReach(products.cursorPrice, mousePower);
+  clickToReachCursor(clickPower) {
+    this.clickToReach(products.cursorPrice, clickPower);
   }
-  clickToReachGrandMa(mousePower) {
-    this.clickToReach(products.grandMaPrice, mousePower);
+  clickToReachGrandMa(clickPower) {
+    this.clickToReach(products.grandMaPrice, clickPower);
   }
-  clickToReachUpgrade(mousePower, index = 1) {
-    this.clickToReach(upgrades.getItemPrice(index), mousePower);
+  clickToReachUpgrade(clickPower, index = 1) {
+    this.clickToReach(upgrades.getItemPrice(index), clickPower);
   }
 }
 
