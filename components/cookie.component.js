@@ -1,4 +1,5 @@
 const products = require("./products.component");
+const { clickTimeout } = require("../config/timeouts.json");
 
 class Cookie {
   get cookie() {
@@ -17,20 +18,20 @@ class Cookie {
     return +amount;
   }
 
-  clickCookie(times, clickTimeout = 10) {
+  clickCookie(times) {
     this.cookie.scrollIntoView(false);
     for (let i = 0; i < times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
     }
   }
-  clickToReach(price, clickTimeout = 10) {
+  clickToReach(price) {
     const difference = Math.max(0, price - this.cookiesAmount);
     if (difference) {
       this.clickCookie(difference, clickTimeout);
     }
   }
-  
+
   clickToReachCursor() {
     this.clickToReach(products.cursorPrice);
   }
