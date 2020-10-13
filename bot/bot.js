@@ -62,7 +62,18 @@ describe("Cookie Clicker Bot", function () {
   });
   it("Buy cursor upgrade", function () {
     const { initItems, newItems } = reachAndBuyUpgrade(true);
-    console.log({ initItems, newItems });
     assert.equal(newItems, initItems - 1);
+  });
+  it("Buy third grandma", function () {
+    reachAndBuyGrandMa();
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
+  });
+  it("Buy fourth grandma", function () {
+    reachAndBuyGrandMa();
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
+  });
+  it("Buy fifth grandma", function () {
+    reachAndBuyGrandMa();
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
 });
