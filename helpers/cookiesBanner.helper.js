@@ -1,3 +1,5 @@
+const { animationTime } = require("../config/timeouts.json");
+
 class CookiesBanner {
   get acceptCookiesBtn() {
     return $(".cc_btn_accept_all");
@@ -5,7 +7,7 @@ class CookiesBanner {
 
   acceptCookies() {
     this.acceptCookiesBtn.waitForDisplayed();
-    browser.pause(1000); //animation time
+    browser.pause(animationTime);
     this.acceptCookiesBtn.click();
   }
 }
