@@ -74,4 +74,8 @@ describe("Cookie Clicker Bot", function () {
     reachAndBuyCursor(5);
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
+  it("Buy 2 grandmas", function () {
+    reachAndBuyGrandMa(2);
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
+  });
 });
