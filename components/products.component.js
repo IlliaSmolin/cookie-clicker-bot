@@ -1,4 +1,5 @@
 const { animationTime } = require("../config/timeouts.json");
+const { clearCommas } = require("../helpers/numbers.helper");
 
 class Products {
   get productsBlock() {
@@ -27,11 +28,13 @@ class Products {
     return this.productsBlock.$(`#product${index}`);
   }
   productPrice(index) {
-    const amount = this.productsBlock.$(`#productPrice${index}`).getHTML(false);
+    let amount = this.productsBlock.$(`#productPrice${index}`).getHTML(false);
+    amount = clearCommas(amount);
     return +amount;
   }
   productOwnedAmount(index) {
-    const amount = this.productsBlock.$(`#productOwned${index}`).getHTML(false);
+    let amount = this.productsBlock.$(`#productOwned${index}`).getHTML(false);
+    amount = clearCommas(amount);
     return +amount;
   }
   buyCursor() {

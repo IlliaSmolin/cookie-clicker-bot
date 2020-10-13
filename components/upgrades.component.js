@@ -1,4 +1,5 @@
 const { animationTime } = require("../config/timeouts.json");
+const { clearCommas } = require("../helpers/numbers.helper");
 
 class Upgrades {
   get storeBlock() {
@@ -17,7 +18,8 @@ class Upgrades {
   getItemPrice(index = 1) {
     this.upgradeItem(index).scrollIntoView(false);
     this.upgradeItem(index).moveTo();
-    return this.itemPrice.getText();
+    const amount = clearCommas(this.itemPrice.getText());
+    return +amount;
   }
 
   buyUpgrade(index = 1) {

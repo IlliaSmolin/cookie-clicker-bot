@@ -1,6 +1,7 @@
 const products = require("./products.component");
 const upgrades = require("./upgrades.component");
 const { clickTimeout } = require("../config/timeouts.json");
+const { clearCommas } = require("../helpers/numbers.helper");
 
 class Cookie {
   get cookie() {
@@ -10,12 +11,13 @@ class Cookie {
     return $('#cookies');
   }
   get cookiesAmount() {
-    const amount = this.cookiesAmountBlock.getHTML(false).split(" ")[0];
+    let amount = this.cookiesAmountBlock.getHTML(false).split(" ")[0];
+    amount = clearCommas(amount);
     return +amount;
   }
   get cookiesPerSecond() {
     const textArr = this.cookiesAmountBlock.$("div").getHTML(false).split(" ");
-    const amount = textArr[textArr.length - 1];
+    const amount = clearCommas(textArr[textArr.length - 1]);
     return +amount;
   }
 
