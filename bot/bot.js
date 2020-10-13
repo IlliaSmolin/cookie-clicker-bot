@@ -5,9 +5,6 @@ const options = require("../components/options.component");
 const cookiesBanner = require("../helpers/cookiesBanner.helper");
 const { assert } = require("chai");
 
-const timeouts = {
-  click: 30,
-};
 const productsAmount = {
   cursor: 0,
   grandMa: 0,
@@ -19,7 +16,7 @@ function buyGrandMa() {
 }
 
 function clickToReachGrandMa() {
-  cookie.clickToReach(products.grandMaPrice, timeouts.click);
+  cookie.clickToReach(products.grandMaPrice);
 }
 
 describe("Cookie Clicker Bot", function () {

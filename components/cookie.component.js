@@ -15,14 +15,14 @@ class Cookie {
     return +amount;
   }
 
-  clickCookie(times, clickTimeout) {
+  clickCookie(times, clickTimeout = 10) {
     this.cookie.scrollIntoView(false);
     for (let i = 0; i < times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
     }
   }
-  clickToReach(price, clickTimeout) {
+  clickToReach(price, clickTimeout = 10) {
     const difference = price - this.cookiesAmount;
     this.clickCookie(difference, clickTimeout);
   }
