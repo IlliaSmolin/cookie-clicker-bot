@@ -54,28 +54,20 @@ describe("Cookie Clicker Bot", function () {
     reachAndBuyCursor();
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
-  it("Buy cursor upgrade", function () {
+  it("Buy first cursor upgrade", function () {
     const { initItems, newItems } = reachAndBuyUpgrade(true);
     assert.equal(newItems, initItems - 1);
-  });
-  it("Buy 3 grandmas", function () {
-    reachAndBuyGrandMa(3);
-    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
-  });
-  it("Buy 4 cursors", function () {
-    reachAndBuyCursor(4);
-    assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
   it("Buy second cursor upgrade", function () {
     const { initItems, newItems } = reachAndBuyUpgrade(true);
     assert.equal(newItems, initItems - 1);
   });
-  it("Buy 5 cursors", function () {
-    reachAndBuyCursor(5);
-    assert.strictEqual(products.cursorAmount, amounts.cursor);
-  });
-  it("Buy 2 grandmas", function () {
-    reachAndBuyGrandMa(2);
+  it("Buy 10 grandmas", function () {
+    reachAndBuyGrandMa(10);
     assert.strictEqual(products.grandMaAmount, amounts.grandMa);
+  });
+  it("Buy 9 cursors", function () {
+    reachAndBuyCursor(9);
+    assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
 });
