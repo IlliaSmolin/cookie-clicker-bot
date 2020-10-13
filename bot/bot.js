@@ -66,8 +66,8 @@ describe("Cookie Clicker Bot", function () {
     reachAndBuyGrandMa(10);
     assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
-  it("Buy 9 cursors", function () {
-    reachAndBuyCursor(9);
+  it("Buy 14 cursors", function () {
+    reachAndBuyCursor(14);
     assert.strictEqual(products.cursorAmount, amounts.cursor);
   });
 });
