@@ -1,3 +1,5 @@
+const { animationTime } = require("../config/timeouts.json");
+
 class Products {
   get productsBlock() {
     return $("#products");
@@ -35,10 +37,12 @@ class Products {
   buyCursor() {
     this.cursor.scrollIntoView();
     this.cursor.click();
+    browser.pause(animationTime);
   }
   buyGrandMa() {
     this.grandMa.scrollIntoView();
     this.grandMa.click();
+    browser.pause(animationTime);
   }
 }
 
