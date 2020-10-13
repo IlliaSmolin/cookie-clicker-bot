@@ -1,4 +1,5 @@
 const products = require("./products.component");
+const upgrades = require("./upgrades.component");
 const { clickTimeout } = require("../config/timeouts.json");
 
 class Cookie {
@@ -37,6 +38,9 @@ class Cookie {
   }
   clickToReachGrandMa() {
     this.clickToReach(products.grandMaPrice);
+  }
+  clickToReachUpgrade(index = 1) {
+    this.clickToReach(upgrades.getItemPrice(index));
   }
 }
 

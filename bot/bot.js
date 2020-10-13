@@ -2,21 +2,23 @@ const cookiePage = require("../pages/cookie.page");
 const cookie = require("../components/cookie.component");
 const products = require("../components/products.component");
 const options = require("../components/options.component");
+const upgrades = require("../components/upgrades.component");
 const cookiesBanner = require("../helpers/cookiesBanner.helper");
 const { assert } = require("chai");
 
-const productsAmount = {
+let amounts = {
   cursor: 0,
   grandMa: 0,
+  cursorUpgrades: 0,
 };
 
 function buyCursor() {
   products.buyCursor();
-  productsAmount.cursor++;
+  amounts.cursor++;
 }
 function buyGrandMa() {
   products.buyGrandMa();
-  productsAmount.grandMa++;
+  amounts.grandMa++;
 }
 
 describe("Cookie Clicker Bot", function () {
@@ -33,18 +35,24 @@ describe("Cookie Clicker Bot", function () {
   it("Buy first grandma", function () {
     cookie.clickToReachGrandMa();
     buyGrandMa();
-    assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
   it("Buy second grandma", function () {
     cookie.clickToReachGrandMa();
     buyGrandMa();
-    assert.strictEqual(products.grandMaAmount, productsAmount.grandMa);
+    assert.strictEqual(products.grandMaAmount, amounts.grandMa);
   });
   it("Buy 5 cursors", function () {
     for (let i = 0; i < 5; i++) {
       cookie.clickToReachCursor();
       buyCursor();
     }
-    assert.strictEqual(products.cursorAmount, productsAmount.cursor);
+    assert.strictEqual(products.cursorAmount, amounts.cursor);
+  });
+  it("Buy cursor upgrade", function () {
+    const initialUpgradesAmount = upgrades.upgradesAmount;
+    cookie.clickToReachUpgrade();
+    upgrades.buyUpgrade();
+    assert.equal(upgrades.upgradesAmount, initialUpgradesAmount - 1);
   });
 });
