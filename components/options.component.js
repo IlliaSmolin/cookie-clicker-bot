@@ -12,12 +12,18 @@ class Options {
     return this.optionsWindow.$("#formatButton");
   }
 
-  disableShortNumbers() {
+  openOptions() {
     this.optionsBtn.waitForDisplayed();
     this.optionsBtn.click();
+  }
+
+  disableShortNumbers() {
     this.shortNumbersBtn.waitForDisplayed();
     this.shortNumbersBtn.scrollIntoView(false);
     this.shortNumbersBtn.click();
+  }
+
+  closeOptions() {
     this.closeOptionsBtn.scrollIntoView(false);
     this.closeOptionsBtn.click();
   }

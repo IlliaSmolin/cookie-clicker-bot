@@ -34,7 +34,9 @@ describe("Cookie Clicker Bot", function () {
     assert.strictEqual(cookiesBanner.acceptCookiesBtn.isDisplayed(), false);
   });
   it("Disable short numbers option", function () {
+    options.openOptions();
     options.disableShortNumbers();
+    options.closeOptions();
   });
   it("Buy first grandma", function () {
     clickToReachGrandMa();
