@@ -9,6 +9,7 @@ const { assert } = require("chai");
 let amounts = {
   cursor: 0,
   grandMa: 0,
+  farm: 0,
 },
   clickPower = 1;
 
@@ -36,6 +37,13 @@ function reachAndBuyUpgrade(cursor = false) {
   return {
     initItems: initialUpgradesAmount,
     newItems: upgrades.upgradesAmount,
+  }
+}
+function reachAndBuyFarm(amount = 1) {
+  for(let i = 0; i < amount; i++) {
+    cookie.clickToReachFarm(clickPower);
+    products.buyFarm();
+    amounts.farm++;
   }
 }
 
@@ -73,5 +81,9 @@ describe("Cookie Clicker Bot", function () {
   it("Buy first grandma upgrade", function () {
     const { initItems, newItems } = reachAndBuyUpgrade();
     assert.equal(newItems, initItems - 1);
+  });
+  it("Buy first farm", function () {
+    reachAndBuyFarm();
+    assert.strictEqual(products.farmAmount, amounts.farm);
   });
 });

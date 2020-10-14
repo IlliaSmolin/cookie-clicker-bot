@@ -23,6 +23,15 @@ class Products {
   get grandMaAmount() {
     return this.productOwnedAmount(1);
   }
+  get farm() {
+    return this.product(2);
+  }
+  get farmPrice() {
+    return this.productPrice(2);
+  }
+  get farmAmount() {
+    return this.productOwnedAmount(2);
+  }
 
   product(index) {
     return this.productsBlock.$(`#product${index}`);
@@ -37,15 +46,19 @@ class Products {
     amount = clearCommas(amount);
     return +amount;
   }
-  buyCursor() {
-    this.cursor.scrollIntoView();
-    this.cursor.click();
+  buyProduct(product) {
+    product.scrollIntoView();
+    product.click();
     browser.pause(animationTime);
   }
+  buyCursor() {
+    this.buyProduct(this.cursor);
+  }
   buyGrandMa() {
-    this.grandMa.scrollIntoView();
-    this.grandMa.click();
-    browser.pause(animationTime);
+    this.buyProduct(this.grandMa);
+  }
+  buyFarm() {
+    this.buyProduct(this.farm);
   }
 }
 

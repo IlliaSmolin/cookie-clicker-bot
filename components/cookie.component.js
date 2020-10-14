@@ -42,6 +42,9 @@ class Cookie {
   clickToReachGrandMa(clickPower) {
     this.clickToReach(products.grandMaPrice, clickPower);
   }
+  clickToReachFarm(clickPower) {
+    this.clickToReach(products.farmPrice, clickPower);
+  }
   clickToReachUpgrade(clickPower, index = 1) {
     this.clickToReach(upgrades.getItemPrice(index), clickPower);
   }
