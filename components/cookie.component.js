@@ -23,7 +23,10 @@ class Cookie {
 
   clickCookie(cookies, clickPower) {
     this.cookie.scrollIntoView(false);
-    const times = Math.ceil(cookies / clickPower);
+    const clicksPerSec = 13;
+    const cookiesPerSec = Math.floor(this.cookiesPerSecond);
+    const times = Math.ceil((cookies / (cookiesPerSec + clickPower * clicksPerSec)) * clicksPerSec);
+    
     for (let i = 0; i < times; i++) {
       this.cookie.click();
       browser.pause(clickTimeout);
