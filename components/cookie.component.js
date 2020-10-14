@@ -16,8 +16,8 @@ class Cookie {
     return +amount;
   }
   get cookiesPerSecond() {
-    const textArr = this.cookiesAmountBlock.$("div").getHTML(false).split(" ");
-    const amount = clearCommas(textArr[textArr.length - 1]);
+    const textArr = this.cookiesAmountBlock.getHTML(false).split(" ");
+    const amount = clearCommas(textArr[textArr.length - 1].replace("</div>", ""));
     return +amount;
   }
 
