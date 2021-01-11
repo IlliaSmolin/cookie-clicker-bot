@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./.tsbuild/",
+    "sourceMap": false,
+    "target": "ES2019",
+    "module": "commonjs",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "types": ["node", "@wdio/sync", "@wdio/mocha-framework"]
+  },
+  "include": [
+    "./bot/*.ts"
+  ]
+}
