@@ -1,75 +1,75 @@
 import { Element } from "@wdio/sync";
 
 class Options {
-  get optionsBtn() {
+  get optionsBtn(): Element {
     return $("#prefsButton");
   }
-  get optionsWindow() {
+  get optionsWindow(): Element {
     return $("#menu");
   }
-  get closeOptionsBtn() {
+  get closeOptionsBtn(): Element {
     return $(".menuClose");
   }
-  get fancyGraphicsBtn() {
+  get fancyGraphicsBtn(): Element {
     return this.optionsWindow.$("#fancyButton");
   }
-  get particlesBtn() {
+  get particlesBtn(): Element {
     return this.optionsWindow.$("#particlesButton");
   }
-  get milkBtn() {
+  get milkBtn(): Element {
     return this.optionsWindow.$("#milkButton");
   }
-  get cursorsBtn() {
+  get cursorsBtn(): Element {
     return this.optionsWindow.$("#cursorsButton");
   }
-  get clickAnimationBtn() {
+  get clickAnimationBtn(): Element {
     return this.optionsWindow.$("#wobblyButton");
   }
-  get shortNumbersBtn() {
+  get shortNumbersBtn(): Element {
     return this.optionsWindow.$("#formatButton");
   }
-  get fastNotificationsBtn() {
+  get fastNotificationsBtn(): Element {
     return this.optionsWindow.$("#notifsButton");
   }
 
-  openOptions() {
+  openOptions(): void {
     this.optionsBtn.waitForDisplayed();
     this.optionsBtn.click();
   }
-  closeOptions() {
+  closeOptions(): void {
     this.closeOptionsBtn.scrollIntoView(false);
     this.closeOptionsBtn.click();
   }
 
-  clickBtn(btn: Element) {
+  clickBtn(btn: Element): void {
     btn.waitForDisplayed();
     btn.scrollIntoView(false);
     btn.click();
   }
 
-  disableFancyGraphics() {
+  disableFancyGraphics(): void {
     this.clickBtn(this.fancyGraphicsBtn);
   }
-  disableParticles() {
+  disableParticles(): void {
     this.clickBtn(this.particlesBtn);
   }
-  disableMilk() {
+  disableMilk(): void {
     this.clickBtn(this.milkBtn);
   }
-  disableCursors() {
+  disableCursors(): void {
     this.clickBtn(this.cursorsBtn);
   }
-  disableClickAnimation() {
+  disableClickAnimation(): void {
     this.clickBtn(this.clickAnimationBtn);
   }
-  disableShortNumbers() {
+  disableShortNumbers(): void {
     this.clickBtn(this.shortNumbersBtn);
   }
-  enableFastNotifications() {
+  enableFastNotifications(): void {
     this.clickBtn(this.fastNotificationsBtn);
   }
 
-  setHighPerformance() {
+  setHighPerformance(): void {
     this.openOptions();
     this.disableFancyGraphics();
     this.disableParticles();
