@@ -82,4 +82,4 @@ class Options {
   }
 }
 
-module.exports = new Options();
+export default new Options();

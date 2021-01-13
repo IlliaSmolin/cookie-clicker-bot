@@ -1,7 +1,7 @@
 const products = require("./products.component");
 const upgrades = require("./upgrades.component");
 const { clickTimeout } = require("../config/timeouts.json");
-const { clearCommas } = require("../helpers/numbers.helper");
+const { clearCommas } = require("../helpers/numbers.helper").default;
 
 class Cookie {
   get cookie() {

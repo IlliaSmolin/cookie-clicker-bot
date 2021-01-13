@@ -1,9 +1,9 @@
 const cookiePage = require("../pages/cookie.page");
 const cookie = require("../components/cookie.component");
 const products = require("../components/products.component");
-const options = require("../components/options.component");
+const options = require("../components/options.component").default;
 const upgrades = require("../components/upgrades.component");
-const cookiesBanner = require("../helpers/cookiesBanner.helper");
+const cookiesBanner = require("../helpers/cookiesBanner.helper").default;
 const { assert } = require("chai");
 
 let amounts = {

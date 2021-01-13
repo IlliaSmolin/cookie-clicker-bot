@@ -4,4 +4,4 @@ class NumbersHelper {
   }
 }
 
-module.exports = new NumbersHelper();
+export default new NumbersHelper();

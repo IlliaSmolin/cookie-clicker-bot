@@ -1,5 +1,5 @@
 const { animationTime } = require("../config/timeouts.json");
-const { clearCommas } = require("../helpers/numbers.helper");
+const { clearCommas } = require("../helpers/numbers.helper").default;
 
 class Upgrades {
   get storeBlock() {
