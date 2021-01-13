@@ -1,5 +1,5 @@
 class NumbersHelper {
-  clearCommas(str: string) {
+  clearCommas(str: string): string {
     return str.replace(/,/g, "");
   }
 }
