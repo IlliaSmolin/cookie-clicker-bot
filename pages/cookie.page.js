@@ -1,4 +1,4 @@
-const cookie = require("../components/cookie.component");
+const cookie = require("../components/cookie.component").default;
 
 class CookiesPage {
   constructor() {

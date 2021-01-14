@@ -1,5 +1,5 @@
 const cookiePage = require("../pages/cookie.page");
-const cookie = require("../components/cookie.component");
+const cookie = require("../components/cookie.component").default;
 const products = require("../components/products.component").default;
 const options = require("../components/options.component").default;
 const upgrades = require("../components/upgrades.component").default;
