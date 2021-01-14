@@ -1,5 +1,5 @@
 const products = require("./products.component").default;
-const upgrades = require("./upgrades.component");
+const upgrades = require("./upgrades.component").default;
 const { clickTimeout } = require("../config/timeouts.json");
 const { clearCommas } = require("../helpers/numbers.helper").default;
 

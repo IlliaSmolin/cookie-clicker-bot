@@ -2,7 +2,7 @@ const cookiePage = require("../pages/cookie.page");
 const cookie = require("../components/cookie.component");
 const products = require("../components/products.component").default;
 const options = require("../components/options.component").default;
-const upgrades = require("../components/upgrades.component");
+const upgrades = require("../components/upgrades.component").default;
 const cookiesBanner = require("../helpers/cookiesBanner.helper").default;
 const { assert } = require("chai");
 
