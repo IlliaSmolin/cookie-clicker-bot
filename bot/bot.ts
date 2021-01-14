@@ -1,4 +1,4 @@
-const cookiePage = require("../pages/cookie.page");
+const cookiePage = require("../pages/cookie.page").default;
 const cookie = require("../components/cookie.component").default;
 const products = require("../components/products.component").default;
 const options = require("../components/options.component").default;
