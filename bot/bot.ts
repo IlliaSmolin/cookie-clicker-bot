@@ -1,10 +1,10 @@
-const cookiePage = require("../pages/cookie.page").default;
-const cookie = require("../components/cookie.component").default;
-const products = require("../components/products.component").default;
-const options = require("../components/options.component").default;
-const upgrades = require("../components/upgrades.component").default;
-const cookiesBanner = require("../helpers/cookiesBanner.helper").default;
-const { assert } = require("chai");
+import cookiePage from "../pages/cookie.page";
+import cookie from "../components/cookie.component";
+import products from "../components/products.component";
+import options from "../components/options.component";
+import upgrades from "../components/upgrades.component";
+import cookiesBanner from "../helpers/cookiesBanner.helper";
+import { assert } from "chai";
 
 let amounts = {
   cursor: 0,
@@ -13,21 +13,21 @@ let amounts = {
 },
   clickPower = 1;
 
-function reachAndBuyCursor(amount = 1) {
+function reachAndBuyCursor(amount: number = 1): void {
   for(let i = 0; i < amount; i++) {
     cookie.clickToReachCursor(clickPower);
     products.buyCursor();
     amounts.cursor++;
   }
 }
-function reachAndBuyGrandMa(amount = 1) {
+function reachAndBuyGrandMa(amount: number = 1): void {
   for(let i = 0; i < amount; i++) {
     cookie.clickToReachGrandMa(clickPower);
     products.buyGrandMa();
     amounts.grandMa++;
   }
 }
-function reachAndBuyUpgrade(cursor = false) {
+function reachAndBuyUpgrade(cursor: boolean = false): {initItems: number, newItems: number} {
   const initialUpgradesAmount = upgrades.upgradesAmount;
   cookie.clickToReachUpgrade(clickPower);
   upgrades.buyUpgrade();
@@ -39,7 +39,7 @@ function reachAndBuyUpgrade(cursor = false) {
     newItems: upgrades.upgradesAmount,
   }
 }
-function reachAndBuyFarm(amount = 1) {
+function reachAndBuyFarm(amount: number = 1): void {
   for(let i = 0; i < amount; i++) {
     cookie.clickToReachFarm(clickPower);
     products.buyFarm();
